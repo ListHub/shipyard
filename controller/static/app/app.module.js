@@ -11,6 +11,7 @@
         'shipyard.containers',
         'shipyard.events',
         'shipyard.schedule',
+        'shipyard.timeline',
         'shipyard.filters',
         'shipyard.services',
         'shipyard.controllers',
@@ -25,5 +26,3 @@
     Chart.defaults.global.showTooltips = true;
 
 })();
-
-

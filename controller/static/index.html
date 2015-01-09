@@ -13,6 +13,7 @@
         <script src="bower_components/semantic-ui/build/packaged/javascript/semantic.min.js"></script>
         <link rel="stylesheet" type="text/css" href="bower_components/semantic-ui/build/packaged/css/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="app/timeline/timeline.css">
     </head>
     <body ng-app="shipyard">
         <div ng-include="template" ng-controller="HeaderController"></div>
@@ -85,9 +86,19 @@
         <script src="app/schedule/schedule.service.js"></script>
         <script src="app/schedule/config.route.js"></script>
 
+        <!-- Timeline -->
+        <script src="app/timeline/timeline.module.js"></script>
+        <script src="app/timeline/config.route.js"></script>
+        <script src="app/timeline/timeline.controller.js"></script>
+        <script src="app/timeline/timeline.service.js"></script>
+        <script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.js"></script>
+        <script type="text/javascript" src="app/timeline/getTimelineData.js"></script>
+        <script type="text/javascript" src="app/timeline/timeline.js"></script>
+
         <script src="app/services.js"></script>
         <script src="app/controllers.js"></script>
         <script src="app/filters.js"></script>
         <script src="app/utils.js"></script>
+
     </body>
 </html>
