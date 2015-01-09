@@ -1,0 +1,21 @@
+
+
+
+<table class="ui sortable table segment" ng-show="vm.schedule" ng-init="vm.initSort()">
+    <thead>
+        <tr>
+            <th ng-class="vm.tablesort.semanticHeaderClass('name')" ng-click="vm.tablesort.sortBy('name')">Time</th>
+            <th ng-class="vm.tablesort.semanticHeaderClass('image')" ng-click="vm.tablesort.sortBy('image')">Image</th>
+            <th ng-class="vm.tablesort.semanticHeaderClass('schedule')" ng-click="vm.tablesort.sortBy('schedule')">Engine</th>
+            <th ng-class="vm.tablesort.semanticHeaderClass('command')" ng-click="vm.tablesort.sortBy('command')">Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="e in vm.schedule | orderBy:vm.tablesort.getSortField():vm.tablesort.isReverseSorted()">
+            <td><a href="/#/schedule/edit/{{e.name}}">{{e.name}}</a></td>
+            <td>{{e.image|truncate}}</td>
+            <td>{{e.schedule}}</td>
+            <td>{{e.command}}</td>
+        </tr>
+    </tbody>
+</table>

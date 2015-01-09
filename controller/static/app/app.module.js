@@ -10,6 +10,7 @@
         'shipyard.engines',
         'shipyard.containers',
         'shipyard.events',
+        'shipyard.schedule',
         'shipyard.filters',
         'shipyard.services',
         'shipyard.controllers',

@@ -12,8 +12,8 @@ media:
 	@cd static && bower install
 
 release: deps build
-	docker build -t shipyard/shipyard:$(VERSION) .
-	docker push shipyard/shipyard:$(VERSION)
+	docker build -t listhub/shipyard:$(VERSION) .
+	docker push listhub/shipyard:$(VERSION)
 
 test: clean 
 	@# set the GOPATH because godep on drone does not 
