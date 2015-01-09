@@ -6,66 +6,40 @@
                 <div class="header">Error</div>
                 <p>{{error}}</p>
             </div>
-            <div class="four fields">
-                <div class="field">
-                    <label>Image</label>
-                    <div class="ui left labeled input">
-                        <input type="text" name="name" placeholder="ehazlett/go-demo" ng-model="vm.element.image">
-                        <div class="ui corner label">
-                            <i class="icon asterisk"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Hostname</label>
-                    <div class="ui left labeled input">
-                        <input type="text" placeholder="{{vm.name}}" ng-model="vm.element.hostname">
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Domain</label>
-                    <div class="ui left labeled input">
-                        <input type="text" placeholder="example.com" ng-model="vm.element.domain">
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Container Name</label>
-                    <div class="ui left labeled input">
-                        <input type="text" name="containerName" placeholder="" ng-model="vm.element.name">
-                    </div>
-                </div>
+            <div class="field">
+              <label>Job Name</label>
+              <div class="ui left labeled input">
+                <input type="text" name="jobName" placeholder="" ng-model="vm.element.name">
+              </div>
             </div>
             <div class="field">
-                <label>Schedule</label>
+              <label>Schedule</label>
+              <div class="ui left labeled input">
+                <input type="text" name="schedule" placeholder="Cron format" ng-model="vm.element.schedule">
+              </div>
+            </div>
+            <div class="field">
+                <label>Image</label>
                 <div class="ui left labeled input">
-                    <input type="text" placeholder="Cron format" ng-model="vm.element.schedule">
+                    <input type="text" name="name" placeholder="ehazlett/go-demo" ng-model="vm.element.image">
+                    <div class="ui corner label">
+                        <i class="icon asterisk"></i>
+                    </div>
                 </div>
             </div>
             <div class="field">
+              <label>Command</label>
+              <div class="ui left labeled input">
+                <input type="text" name="command" ng-model="vm.element.command">
+              </div>
+            </div>
+            <!-- <div class="field">
                 <label>Environment</label>
                 <div class="ui left labeled input">
-                    <input type="text" placeholder="key=value (space separated)" ng-model="vm.element.environment">
+                    <input type="text" name="environment" placeholder="key=value (space separated)" ng-model="vm.element.environment">
                 </div>
-            </div>
-            <div class="field">
-                <label>Arguments</label>
-                <div class="ui left labeled input">
-                    <input type="text" placeholder="(space separated)" ng-model="vm.element.args">
-                </div>
-            </div>
-            <div class="field">
-                <label>Volumes</label>
-                <div class="ui left labeled input">
-                    <input type="text" placeholder="(space separated: /host/path:/container/path or /container/path)" ng-model="vm.element.volumes">
-                </div>
-            </div>
-            <div class="field">
-                <label>Links</label>
-                <div class="ui left labeled input">
-                    <input type="text" placeholder="(space separated, container:name format)" ng-model="vm.element.links">
-                </div>
-            </div>
-            <div class="three fields">
+            </div> -->
+            <div class="two fields">
                 <div class="field">
                     <label>CPUs</label>
                     <div class="ui left labeled input">
@@ -84,85 +58,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="field">
-                    <label>Count</label>
-                    <div class="ui left labeled input">
-                        <input type="text" name="count" ng-model="vm.element.count">
-                        <div class="ui corner label">
-                            <i class="icon asterisk"></i>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <label>Ports</label> <a ng-click="addPortDefinition()"><i class="plus sign icon tiny"></i></a>
+            <!-- <label>Ports</label> <a ng-click="addPortDefinition()"><i class="plus sign icon tiny"></i></a>
             <div class="ui segment ports">
                 <span class="ui label ports default-label">no port bindings specified</span>
             </div>
             <div class="field">
                 <checkbox name="publish" ng-model="vm.element.publish">Publish all Exposed Ports</checkbox>
-            </div>
-            <div class="three fields">
-                <div class="field">
-                    <label>Type</label>
-                    <div class="ui left labeled selection dropdown">
-                        <input type="hidden" name="type" ng-model="vm.element.type" value="{{selectedType}}">
-                        <div class="default text">{{selectedType || 'Type'}}</div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class="item" ng-repeat="t in types" data-value="{{t}}" ng-click="selectType(t)">{{t}}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Restart Policy</label>
-                    <div class="ui left labeled selection dropdown">
-                        <input type="hidden" name="restartPolicy" ng-model="vm.element.selectedRestartPolicy" value="{{selectedRestartPolicy}}">
-                        <div class="default text">{{selectedRestartPolicy || 'Restart Policy'}}</div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class="item" ng-repeat="r in restartPolicies" data-value="{{r}}" ng-click="selectRestartPolicy(r)">{{r}}</div>
-                        </div>
-                    </div>
-                    <div class="field" ng-show="showMaxRestarts">
-                        <div class="ui divider"></div>
-                        <label>Maximum Restarts</label>
-                        <div class="ui left labeled input">
-                            <input type="text" placeholder="&infin;" name="maxRestarts" ng-model="vm.element.maxRestarts">
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <label>Network</label>
-                    <div class="ui left labeled selection dropdown">
-                        <input type="hidden" name="networkMode" ng-model="vm.element.selectedNetworkMode" value="{{selectedNetworkMode}}">
-                        <div class="default text">{{selectedNetworkMode || 'Network'}}</div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class="item" ng-repeat="n in networkModes" data-value="{{n}}" ng-click="selectNetworkMode(n)">{{n}}</div>
-                        </div>
-                    </div>
-                    <div id="networkMode" class="field" ng-show='showNetworkModeContainer'>
-                        <div class="ui divider"></div>
-                        <label>Network: Container Name</label>
-                        <div class="ui left labeled input">
-                            <input type="text" name="networkModeContainerName" ng-model="vm.element.networkModeContainerName">
-                            <div class="ui corner label">
-                                <i class="icon asterisk"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="field">
-                <label>Labels</label>
-                <checkbox checked="false" name="labels" value="{{label}}" ng-model="vm.element.selectedLabels" class="engine-label" ng-repeat="label in labels">{{label}}</checkbox>
-            </div>
+            </div> -->
             <!--
             <div class="field">
                 <checkbox checked="false" ng-model="pull">Pull the latest image (you must pull if the image does not exist on the host)</checkbox>
             </div>
             -->
-            <div class="ui blue button" ng-click="deploy()">Deploy</div>
+            <div class="ui blue button" ng-click="saveSchedule()">Save</div>
         </div>
     </div>
 </div>
@@ -197,42 +106,6 @@
                         }
                     ]
                 },
-                count: {
-                    identifier : 'count',
-                    rules: [
-                        {
-                            type   : 'empty',
-                            prompt : 'enter the number of instances'
-                        }
-                    ]
-                },
-                label: {
-                    identifier : 'label',
-                    rules: [
-                        {
-                            type   : 'empty',
-                            prompt : 'select a label for deployment'
-                        }
-                    ]
-                },
-                type: {
-                    identifier : 'type',
-                    rules: [
-                        {
-                            type   : 'empty',
-                            prompt : 'select a container type'
-                        }
-                    ]
-                },
-                networkMode: {
-                    identifier : 'networkMode',
-                    rules: [
-                        {
-                            type   : 'empty',
-                            prompt : 'select a network mode'
-                        }
-                    ]
-                }
             }, {
                 inline: 'true'
             });

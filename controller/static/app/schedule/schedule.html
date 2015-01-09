@@ -4,10 +4,10 @@
 <table class="ui sortable table segment" ng-show="vm.schedule" ng-init="vm.initSort()">
     <thead>
         <tr>
-            <th ng-class="vm.tablesort.semanticHeaderClass('name')" ng-click="vm.tablesort.sortBy('name')">Time</th>
+            <th ng-class="vm.tablesort.semanticHeaderClass('name')" ng-click="vm.tablesort.sortBy('name')">Name</th>
             <th ng-class="vm.tablesort.semanticHeaderClass('image')" ng-click="vm.tablesort.sortBy('image')">Image</th>
-            <th ng-class="vm.tablesort.semanticHeaderClass('schedule')" ng-click="vm.tablesort.sortBy('schedule')">Engine</th>
-            <th ng-class="vm.tablesort.semanticHeaderClass('command')" ng-click="vm.tablesort.sortBy('command')">Type</th>
+            <th ng-class="vm.tablesort.semanticHeaderClass('schedule')" ng-click="vm.tablesort.sortBy('schedule')">Schedule</th>
+            <th ng-class="vm.tablesort.semanticHeaderClass('command')" ng-click="vm.tablesort.sortBy('command')">Command</th>
         </tr>
     </thead>
     <tbody>
