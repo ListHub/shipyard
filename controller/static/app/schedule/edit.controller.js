@@ -4,11 +4,31 @@
         .module('shipyard.schedule')
         .controller('EditController', EditController);
 
-    EditController.$inject = ['$location', '$window', 'Schedule', 'tablesort'];
+    EditController.$inject = ['$scope', '$location', '$window', 'Schedule', 'tablesort'];
 
-    function EditController($location, $window, Schedule, tablesort) {
+    function EditController($scope, $location, $window, Schedule, tablesort) {
         var vm = this;
         vm.tablesort = tablesort;
+
+        $scope.saveSchedule = function() {
+
+          var body = {
+            image: vm.element.image,
+            schedule: vm.element.schedule,
+            name: vm.element.name,
+            memory: vm.element.memory,
+            command : vm.element.command,
+            cpu : vm.element.cpu
+          }
+          console.log("Saving schedule: " + JSON.stringify(body));
+          $.post("http://localhost:8000/api/v1/jobs",JSON.stringify(body))
+            .done(function() {
+              console.log("done");
+            })
+            .fail(function(xhr, textStatus, errorThrown) {
+              console.log("fail: " + xhr.responseText);
+            });
+        };
 
         vm.initSort = function() {
             console.log("oooh")
